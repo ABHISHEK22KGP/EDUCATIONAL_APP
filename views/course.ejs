@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="course.css" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/?size=1x&id=HXY7WjeDDgsq&format=png" >
+    <title>IITIAN VISION ACADEMY</title>
+</head>
+<body>
+    <section class="courseboxvalue">
+    <h3 class="heading" style="color:#A683E3;">IITIAN VISION ACADEMY</h3>
+    <div class="container ">
+        <div class="main-video borderforvideo">
+            <div class="video">
+                <video src="video1.mp4" controls autoplay></video>
+                <h3 class="title">01. Video Shoot</h3>
+            </div>
+        </div>
+
+        <div class="video-list borderforplaylist">
+            <div class="vid active">
+                <video src="video1.mp4" muted></video>
+                <h3 class="title" >01. Video Shoot</h3>
+            </div>
+            <div class="vid">
+                <video src="video3.mp4" muted></video>
+                <h3 class="title">02. Diamond Neclace</h3>
+            </div>
+            <div class="vid">
+                <video src="video2.mp4" muted></video>
+                <h3 class="title">03. Children Studying</h3>
+            </div>
+            <div class="vid">
+                <video src="video5.mp4" muted></video>
+                <h3 class="title">04. Tumse hi...</h3>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+    <script>
+
+        let listVideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title = document.querySelector('.main-video .title');
+
+        listVideo.forEach(video =>{
+            video.onclick = () =>{
+                listVideo.forEach(vid => vid.classList.remove('active'));
+                video.classList.add('active');
+                if(video.classList.contains('active')){
+                    let src = video.children[0].getAttribute('src');
+                    mainVideo.src = src;
+                    let text = video.children[1].innerHTML;
+                    title.innerHTML = text;
+                };
+
+            };
+        });
+
+    </script>
+
+</body>
+</html>

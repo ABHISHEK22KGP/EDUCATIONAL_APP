@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/1940/1940611.png">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsterrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>IITIAN VISION ACADEMY</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/1940/1940611.png">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="">
+        </a>
+        <ul class="navbar">
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#categories">Categories</a></li>
+            <li><a href="/#courses">Courses</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <div class="header-icons">
+            <a href="/mylearning"><i class='bx bx-book-reader'></i></a>
+            <a href="/cart"><i class="bx bx-cart"></i></a>
+            <% if (signin==0) { %>
+                <a href="/login">Sign In</a>
+              <% }else{ %> 
+                <img class="profilephoto" src="https://cdn-icons-png.flaticon.com/128/1144/1144709.png">
+            <% } %>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+            <section class="categories" id="categories">
+                <div class="center-text">
+                    <h5 style="font-size: 2rem;">CART</h5>
+                </div>
+        
+                <div class="categories-content">
+                    <% for(var i=0;i<Course.length;i++){ %>
+                        <div class="box">
+                            <img src=<%= Course[i].image %> alt="">
+                            <h3><%= Course[i].categories_name %></h3>
+                            <h3 style="color:red">₹ <%= Course[i].price %>/month only</h3>
+                            <form action="/removefromcart" method="post">
+                                <div class="main-btn">
+                                    <button class="btn" style="border:none" name="RemovefromCart" value="<%= Course[i]._id %>" type="submit">Remove</button>
+                                </div>
+                            </form>
+                        </div>
+                        <% } %>
+                </div>
+                <div style="justify-content: center;text-align: center;">
+                    <h1>Total:<%= price %></h1>
+                    <a  href="/checkout" class="btn">Checkout</a>
+                </div>
+            </section>
+
+
+        <!-- profile card  -->
+        <% if(signin!=0){ %>
+            <div class="cardx" style="position:fixed;">
+                <div class="card-innerx">
+                    <div class="frontx">
+                        <div class="ffrontx">
+                            <h2><%= profile.name %></h2>
+                            <p><%= profile.about %></p>
+                        </div>   
+                    </div>
+                    <div class="backx">
+                        <div class="bbackx">
+                        <form class="backx-downx" action="/updateprofile" method="post">
+                            <label for="input-file" style="border:none;background: transparent;"><img style="width:50%;height:50%;border-radius: 12px;" src="https://images.pexels.com/photos/921646/pexels-photo-921646.jpeg?auto=compress&cs=tinysrgb&w=600" id="profile-pic"></label>
+                            <!-- <input style="display: none;" name="image" type="file" accept="image/jpeg, image/png, image/jpg" id="input-file"> -->
+                            <div style="background: transparent" class="ffrontx" style="margin-bottom:50px">
+                                <h2 ><%= profile.name %></h2>
+                                <p ><%= profile.about %></p>
+                                <p>Email: <%= profile.email %></p>
+                                <p>Class: <%= profile.class %></p>
+                            </div> 
+                            <div class="inputxyz">
+                                <input type="text" name="about" placeholder="Update About" required=""/>
+                                <input type="text" name="class" placeholder="Update Class" required=""/>
+                            </div>
+                            
+                                		
+
+                            <button style="margin-top:0px;border:none;background: transparent;" type="submit" class="">
+                                <a class="btn">Update</a>
+                            </button>
+                        </form>
+                        <!-- <form style="margin:10px" action="/logout" method="post">
+                            <button style="margin-top:0px;border:none;background: transparent;" type="submit" class="">
+                                <a class="btn">Log out</a>
+                            </button>
+                        </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+       <% } %>
+        
+        <!-- profile card ends  -->
+    
+    <script>
+
+    </script>
+    <script src="home.js"></script>
+</body>
+</html>

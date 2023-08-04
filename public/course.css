@@ -1,0 +1,135 @@
+/* *{
+    margin:0;padding:0;
+    box-sizing:border-box;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    background: #eee;
+} */
+
+.heading{
+    color:#444;
+    font-size:2.5rem;
+    text-align: center;
+    padding:0.75rem;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap:1rem;
+    align-items:flex-start;
+    padding:0.3rem 5%;
+}
+
+.container .main-video{
+    background: #fff;
+    border-radius:0.3rem;
+    padding:1.25rem;
+}
+
+.container .main-video video{
+    width:100%;
+    border-radius:0.3rem;
+}
+
+.container .main-video .title{
+    color:#333;
+    font-size:1.25rem;
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+.container .video-list{
+    background: #fff;
+    border-radius: 0.3rem;
+    height:32.5rem;
+    overflow-y: scroll;
+}
+
+.container .video-list::-webkit-scrollbar{
+    width:0.5rem;
+}
+
+.container .video-list::-webkit-scrollbar-track{
+    background: #ccc;
+    border-radius: 3.1rem;
+}
+
+.container .video-list::-webkit-scrollbar-thumb{
+    background: #666;
+    border-radius: 3.1rem;
+}
+
+.container .video-list .vid video{
+    width:6.25rem;
+    border-radius: 0.3rem;
+}
+
+.container .video-list .vid{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    background:#f7f7f7;
+    border-radius: 0.3rem;
+    margin:0.75rem;
+    border:1px solid rgba(0,0,0,.1);
+    cursor:pointer;
+}
+
+.container .video-list .vid:hover{
+    background: #eee;
+}
+
+.container .video-list .vid.active{
+    background: #2980b9;
+}
+
+.container .video-list .vid.active .title{
+    color:#fff;
+}
+.container .video-list .vid .title{
+    color:#333;
+    font-size: 1rem;
+}
+
+body{
+    background-color: #E4E9FD;
+    background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+    font-family: 'helvetica neue';
+  }
+
+.courseboxvalue{
+    height:100vh;width:100vw;
+}
+
+.borderforvideo{
+    border-radius: 10%;
+    border:0.1rem solid #27E1C1;
+}
+
+.borderforplaylist{
+    border-radius: 10%;
+    border:0.1rem solid #27E1C1;
+}
+
+
+@media (max-width:991px){
+    .container{
+        grid-template-columns: 1.5fr 1fr;
+    }
+    .courseboxvalue{
+        height:auto;
+        padding-bottom:4rem;
+    }
+}
+
+@media (max-width:991px){
+    .container{
+        grid-template-columns:1fr;
+    }
+}
+

@@ -338,13 +338,12 @@ app.get("/new",function(req,res){
 
 
 
-// mongoose connection
-const URLL ='mongodb+srv://abhishekkingallknow:frVy2tQg1T2t7CZW@cluster0.ajr8m72.mongodb.net/?retryWrites=true&w=majority';
+const URLL = 'mongodb://0.0.0.0/iitianvisionacademy2023';
 mongoose.connect(URLL,{
     useNewUrlParser:true,useUnifiedTopology:true
 }).then(() => {
     console.log('connected Successfully');
-    const PORT = process.env.PORT || 3000;
+    const PORT = 3000;
     app.listen(PORT,function(){
         console.log("SERVER STARTED ON PORT 3000");
     });
